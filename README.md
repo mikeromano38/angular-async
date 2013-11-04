@@ -70,7 +70,7 @@ Your app file should be set up like this:
 
 Your controller2.js file would look like this.
 
-    ```javascript
+```javascript
     /*
         Again, we wrap it in an init because that's how Helios does it.
     */
@@ -87,4 +87,4 @@ Your controller2.js file would look like this.
     			console.log('controller2');
     		}])
     }
-    ```
+```
