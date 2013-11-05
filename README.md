@@ -2,16 +2,15 @@
 
 This is build on top of the awesome module loader: helios kernel https://github.com/asvd/helios-kernel
 
-Just load helios, angular, angular-route, and async-angular
+Just load helios, angular, and async-angular
 
 ```html
 <script src="lib/helios-kernel/kernel.js"></script>
 <script src="lib/angular/angular.js"></script>
-<script src="lib/angular/angular-route.js"></script>
 <script src="js/asyncAngular.js"></script>
 ```
 
-Initialise your app by pointing to your main module file
+Initialise your app by pointing to your main app module file
 
 ```html
 <script>
@@ -21,76 +20,81 @@ Initialise your app by pointing to your main module file
 </script>
 ```
 
-Your app file should be set up like this:
+Your app file should be set up something like this:
 
 ```javascript
 /*
     This should look familiar. Just include any files you need to run the code in the init function.
 */
-include('./filters.js');
-include('./services.js');
-include('./directives.js');
-include('./controllers.js');
+include('./module1.js');
+include('./module2.js');
+include('./module3.js');
 
 /*
     The init function is fired when all dependencies are loaded
 */
 var init = function(){
-    'use strict';
 
-    console.log('initializing app');
-    // Declare app level module which depends on filters, and services
     var mod = angular.module('myApp', [
-            'ngRoute',
             'asyncAngular',
-            'myApp.filters',
-            'myApp.services',
-            'myApp.directives',
-            'myApp.controllers'
+            'module1',
+            'module2',
+            'module3'
         ]);
-
-    mod.config(['$routeProvider', function($routeProvider) {
-
-            $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-
-            /*
-                Here is some magic. You can use the resolve method on the route definition and pass it async-angular's async service
-            */
-            $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', resolve: { deps: ['async', function(async){
-
-                /*
-                    Fetch returns a promise. Just return that promise from the resolve method and angular will wait to instantiate MyCtrl2 until the dependency resolves.
-                */
-                return async.fetch('./js/controller2.js', function(){
-                    console.log('loaded controller 2');
-                });
-
-            }]}, controller: 'MyCtrl2'});
-
-            $routeProvider.otherwise({redirectTo: '/view1'});
-        }]);
 
     angular.bootstrap(window.document, ['myApp']);
 }
 ```
 
-Your controller2.js file would look like this.
+Per the Helios API any asynchronous modules need to have their execution code wrapped in an init function
 
 ```javascript
-/*
-    Again, we wrap it in an init because that's how Helios does it.
-*/
 var init = function(){
-    'use strict';
 
-    /*
-        We're going to get the asyncAngular module here and call the controller method to create a controller at runtime. We have to do this because
-        only the asyncAngular module has references to the various angular providers, outside of the config block. The asyncAngular module also has
-        directive, provider, service, factory, and filter methods. It also has a reference to routeProvider.
-     */
+    //your module code goes here
 
-    angular.module('asyncAngular').controller('MyCtrl2', [function() {
-            console.log('controller2');
-        }])
+}
+```
+
+Your modules can have their own dependencies...
+
+```javascript
+include('./some-othermodule.js')
+
+var init = function(){
+
+    //your module code goes here
+
+}
+```
+
+If one of your asynchronous modules will create an angular component such as a controller, filter, service, factory, etc.
+You must use the angular._async object to define and register it. Otherwise Angular will not be able to find it.
+
+```javascript
+var init = function(){
+
+    //async controller
+    angular._async.controller('MyAsyncController', ['$scope', function($scope){
+
+    });
+
+    //async filter
+    angular._async.filter('MyAsyncController', [function(){
+
+    });
+
+    //async service
+    angular._async.filter('MyAsyncController', [function(){
+
+    });
+
+    //async directive
+    angular._async.directive('MyAsyncController', [function(){
+
+    });
+
+    //etc... You get the point :)
+
 }
 ```

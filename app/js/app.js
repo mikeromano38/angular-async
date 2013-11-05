@@ -22,8 +22,10 @@ var init = function(){
 			$routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
 			$routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', resolve: { deps: ['async', function(async){
 
-				var dep = async.fetch('./js/controller2.js', function(){
-					console.log('loaded controller 2');
+				var dep = async.fetch('./js/controller2.js');
+
+				dep.then(function(){
+					console.log('controller 2 resolved');
 				});
 
 				return dep;
