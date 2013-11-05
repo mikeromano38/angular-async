@@ -148,7 +148,10 @@ var myApp = angular.module('myApp', []);
 
 myApp.config(['$routeProvider', function($routeProvider) {
 
-    $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
+    $routeProvider.when('/view1', {
+        templateUrl: 'partials/partial1.html',
+        controller: 'MyCtrl1'
+    });
 
     //when we hit the second route, we want to load MyCtrl2 asynchronously
     //we can pass the async service to
@@ -164,7 +167,8 @@ myApp.config(['$routeProvider', function($routeProvider) {
             }]},
 
         //instantiate MyCtrl2 when full resolved
-        controller: 'MyCtrl2'});
+        controller: 'MyCtrl2'
+    });
 
     $routeProvider.otherwise({redirectTo: '/view1'});
 ]);
