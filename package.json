@@ -1,11 +1,13 @@
 {
-  "name": "angualrjs-seed",
-  "description": "A starter project for angular js",
+  "name": "angular-async",
+  "description": "An asynchronous module loader for angular",
   "devDependencies": {
         "phantomjs" : "*",
         "karma" : "*",
         "karma-junit-reporter" : "*",    
         "karma-jasmine" : "*",
-        "karma-ng-scenario" : "*"
+        "karma-ng-scenario" : "*",
+	  	"grunt-contrib-uglify": "*",
+	  	"grunt-contrib-concat": "*"
     }
 }

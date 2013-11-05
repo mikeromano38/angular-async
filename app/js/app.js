@@ -10,7 +10,7 @@ var init = function(){
 	// Declare app level module which depends on filters, and services
 	var mod = angular.module('myApp', [
 			'ngRoute',
-			'asyncAngular',
+			'angularAsync',
 			'myApp.filters',
 			'myApp.services',
 			'myApp.directives',

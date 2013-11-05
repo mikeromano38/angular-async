@@ -1,7 +1,7 @@
-angular.module( 'asyncAngular', [] );
+angularAsync = angular.module( 'angularAsync', [] );
 
-angular.module( 'asyncAngular' ).config( ['$controllerProvider', '$compileProvider', '$routeProvider', '$filterProvider', '$provide', function( $controllerProvider, $compileProvider, $routeProvider, $filterProvider, $provide ){
-	var mod = angular._async = angular.module( 'asyncAngular' );
+angular.module( 'angularAsync' ).config( ['$controllerProvider', '$compileProvider', '$routeProvider', '$filterProvider', '$provide', function( $controllerProvider, $compileProvider, $routeProvider, $filterProvider, $provide ){
+	var mod = angular.module( 'angularAsync' );
 
 	mod.controller = $controllerProvider.register;
 	mod.directive    = $compileProvider.directive;
@@ -14,7 +14,7 @@ angular.module( 'asyncAngular' ).config( ['$controllerProvider', '$compileProvid
 
 }]);
 
-angular.module( 'asyncAngular' ).factory( 'async', ['$rootScope', '$q', function($rootScope, $q){
+angular.module( 'angularAsync' ).factory( 'async', ['$rootScope', '$q', function($rootScope, $q){
 
 	var fetched = {};
 
@@ -49,3 +49,5 @@ angular.module( 'asyncAngular' ).factory( 'async', ['$rootScope', '$q', function
 		fetch: fetch
 	}
 }]);
+
+angularAsync.require = kernel.require;

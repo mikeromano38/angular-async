@@ -19,13 +19,12 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   -->
 
-  <script src="lib/helios-kernel/kernel.js"></script>
   <script src="lib/angular/angular.js"></script>
-  <script src="js/asyncAngular.js"></script>
+  <script src="../dist/angular-async.min.js"></script>
   <script src="lib/angular/angular-route.js"></script>
   <script>
       window.onload = function(){
-          kernel.require('./js/app.js');
+          angularAsync.require('./js/app.js');
       }
   </script>
 

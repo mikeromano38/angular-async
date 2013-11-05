@@ -1,21 +1,22 @@
-# async-angular — a module for asynchronous loading of angular components
+# angular-async — a module for asynchronous loading of angular components
 
-This is build on top of the awesome module loader: helios kernel https://github.com/asvd/helios-kernel
+This is built on top of the awesome module loader: helios kernel https://github.com/asvd/helios-kernel
 
-Just load helios, angular, and async-angular
+Just load angular, and angular-async
 
 ```html
-<script src="lib/helios-kernel/kernel.js"></script>
 <script src="lib/angular/angular.js"></script>
-<script src="js/asyncAngular.js"></script>
+<script src="js/angular-async.js"></script>
 ```
 
-Initialise your app by pointing to your main app module file
+Initialize your app by pointing to your main app module file:
 
 ```html
 <script>
+
+    //angularAsync.require is just a reference to Helios' kernel.require
     window.onload = function(){
-        kernel.require('./js/app.js');
+        angularAsync.require('./js/app.js');
     }
 </script>
 ```
@@ -36,13 +37,13 @@ include('./module3.js');
 var init = function(){
 
     var mod = angular.module('myApp', [
-            'asyncAngular',
+            'angularAsync',
             'module1',
             'module2',
             'module3'
         ]);
 
-    //we manually bootstrap the app here after all the dependencies have loaded
+    //we must manually bootstrap the app here after all the dependencies have loaded
     angular.bootstrap(window.document, ['myApp']);
 }
 ```
@@ -71,28 +72,28 @@ var init = function(){
 
 If one of your asynchronous modules will create an angular component (such as a controller, filter, service, factory, etc.),
 and if that module will be loaded after the application bootstraps,
-then you must use the angular._async object to define and register it. Otherwise Angular will not be able to find it.
+then you must use the angularAsync object to define and register it. Otherwise Angular will not be able to find it.
 
 ```javascript
 var init = function(){
 
     //async controller
-    angular._async.controller('MyAsyncController', ['$scope', function($scope){
+    angularAsync.controller('MyAsyncController', ['$scope', function($scope){
 
     });
 
     //async filter
-    angular._async.filter('MyAsyncController', [function(){
+    angularAsync.filter('MyAsyncController', [function(){
 
     });
 
     //async service
-    angular._async.filter('MyAsyncController', [function(){
+    angularAsync.filter('MyAsyncController', [function(){
 
     });
 
     //async directive
-    angular._async.directive('MyAsyncController', [function(){
+    angularAsync.directive('MyAsyncController', [function(){
 
     });
 
@@ -132,7 +133,7 @@ In this case my-other-component.js might look like this:
 var init = function(){
 
     //registering directive after bootstrap
-    angular._async.directive('myDirective', [function(){
+    angularAsync.directive('myDirective', [function(){
 
         //directive code here
     }])
@@ -173,4 +174,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/view1'});
 ]);
 ```
+
+
 
