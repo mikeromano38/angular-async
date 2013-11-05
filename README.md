@@ -105,7 +105,9 @@ angularAsync has a service called async that you can inject into your various co
 
 ```javascript
 
-angular.module('myApp').controller('MyCtrl', ['$scope', 'async', function( $scope, async ){
+var myApp = angular.module('myApp', [])
+
+myApp.controller('MyCtrl', ['$scope', 'async', function( $scope, async ){
 
     //use the fetch method to load a file dynamically
     var mod = async.fetch('./my-other-component.js');
