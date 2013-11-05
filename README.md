@@ -42,6 +42,7 @@ var init = function(){
             'module3'
         ]);
 
+    //we manually bootstrap the app here after all the dependencies have loaded
     angular.bootstrap(window.document, ['myApp']);
 }
 ```
@@ -68,8 +69,9 @@ var init = function(){
 }
 ```
 
-If one of your asynchronous modules will create an angular component such as a controller, filter, service, factory, etc.
-You must use the angular._async object to define and register it. Otherwise Angular will not be able to find it.
+If one of your asynchronous modules will create an angular component (such as a controller, filter, service, factory, etc.),
+and if that module will be loaded after the application bootstraps,
+then you must use the angular._async object to define and register it. Otherwise Angular will not be able to find it.
 
 ```javascript
 var init = function(){
@@ -98,3 +100,71 @@ var init = function(){
 
 }
 ```
+
+angularAsync has a service called async that you can inject into your various components for dynamic loading of other components at runtime
+
+```javascript
+
+angular.module('myApp').controller('MyCtrl', ['$scope', 'async', function( $scope, async ){
+
+    //use the fetch method to load a file dynamically
+    var mod = async.fetch('./my-other-component.js');
+
+    //This returns a promise with resolve and reject
+    //the callbacks are fired within scope
+    mod.then(function(){
+
+        //successfully loaded, do something
+    }, function(){
+
+        //whoops something went wrong
+    });
+
+}]);
+```
+
+In this case my-other-component.js might look like this:
+
+```javascript
+
+var init = function(){
+
+    //registering directive after bootstrap
+    angular._async.directive('myDirective', [function(){
+
+        //directive code here
+    }])
+}
+```
+
+Finally, since the async.fetch method returns a promise, it works well with route resolution in angular
+Let's say we have a basic app defined here:
+
+```javascript
+
+var myApp = angular.module('myApp', []);
+
+myApp.config(['$routeProvider', function($routeProvider) {
+
+    $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
+
+    //when we hit the second route, we want to load MyCtrl2 asynchronously
+    //we can pass the async service to
+    $routeProvider.when('/view2', {
+        templateUrl: 'partials/partial2.html',
+        resolve: {
+            deps: ['async', function(async){
+
+                //async.fetch returns a promise, so we can just return it from
+                //this dependency and anguar will wait to instantiate the controller
+                return async.fetch('./js/controller2.js');
+
+            }]},
+
+        //instantiate MyCtrl2 when full resolved
+        controller: 'MyCtrl2'});
+
+    $routeProvider.otherwise({redirectTo: '/view1'});
+]);
+```
+

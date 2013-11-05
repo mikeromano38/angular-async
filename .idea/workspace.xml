@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3ed778c2-e9da-48ca-ab3a-e3e7969c69dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app.js" afterPath="$PROJECT_DIR$/app/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/asyncAngular.js" afterPath="$PROJECT_DIR$/app/js/asyncAngular.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/controller1.js" afterPath="$PROJECT_DIR$/app/js/controller1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/controller2.js" afterPath="$PROJECT_DIR$/app/js/controller2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/partials/partial1.html" afterPath="$PROJECT_DIR$/app/partials/partial1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="async-angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +24,7 @@
     <favorites_list name="async-angular" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6342376">
+    <splitter split-orientation="horizontal" split-proportion="0.8691149">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
@@ -45,7 +39,7 @@
           <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/js/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="36" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+                <state line="19" column="16" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
                   <folding />
                 </state>
               </provider>
@@ -63,7 +57,7 @@
           <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/README.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="14" selection-start="299" selection-end="299" vertical-scroll-proportion="0.17391305" vertical-offset="0" max-vertical-offset="1590">
+                <state line="168" column="3" selection-start="4168" selection-end="4168" vertical-scroll-proportion="0.84782606" vertical-offset="1935" max-vertical-offset="2640">
                   <folding />
                 </state>
               </provider>
@@ -130,7 +124,7 @@
           <file leaf-file-name="asyncAngular.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/js/asyncAngular.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.27349228" vertical-offset="0" max-vertical-offset="840">
+                <state line="13" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.09537167" vertical-offset="127" max-vertical-offset="840">
                   <folding />
                 </state>
               </provider>
@@ -167,8 +161,8 @@
         <option value="$PROJECT_DIR$/app/partials/partial1.html" />
         <option value="$PROJECT_DIR$/app/js/asyncAngular.js" />
         <option value="$PROJECT_DIR$/app/lib/angular/angular-route.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/js/app.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -473,7 +467,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/asyncAngular.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.27349228" vertical-offset="0" max-vertical-offset="840">
+        <state line="13" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.09537167" vertical-offset="127" max-vertical-offset="840">
           <folding />
         </state>
       </provider>
@@ -506,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="36" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="40" selection-start="763" selection-end="763" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="585">
@@ -520,9 +507,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="16" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="299" selection-end="299" vertical-scroll-proportion="0.17391305" vertical-offset="0" max-vertical-offset="1590">
+        <state line="168" column="3" selection-start="4168" selection-end="4168" vertical-scroll-proportion="0.84782606" vertical-offset="1935" max-vertical-offset="2640">
           <folding />
         </state>
       </provider>
