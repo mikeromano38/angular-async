@@ -1,4 +1,4 @@
-/*! angular-async 2013-11-05 */
+/*! angular-async 2013-11-06 */
 /*********************************************************************
   Helios Kernel - javascript module loader
 

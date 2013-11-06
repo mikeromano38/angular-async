@@ -83,12 +83,12 @@ var init = function(){
     });
 
     //async filter
-    angularAsync.filter('MyAsyncController', [function(){
+    angularAsync.filter('myAsyncFilter', [function(){
 
     });
 
     //async service
-    angularAsync.filter('MyAsyncController', [function(){
+    angularAsync.service('MyAsyncService', [function(){
 
     });
 
@@ -98,6 +98,19 @@ var init = function(){
     });
 
     //etc... You get the point :)
+
+    /* Methods Available
+
+        - controller
+        - directive
+        - filter
+        - factory
+        - service
+        - value
+        - constant
+        - provider
+
+    */
 
 }
 ```
