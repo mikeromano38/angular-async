@@ -2,9 +2,10 @@
 
 This is built on top of the awesome module loader: helios kernel https://github.com/asvd/helios-kernel
 
-Just load angular, and angular-async
+Just load angular, helios-kernel, and angular-async
 
 ```html
+<script src="lib/angular-async/kernel.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="js/angular-async.js"></script>
 ```

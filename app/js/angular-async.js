@@ -4,13 +4,13 @@ angular.module( 'angularAsync' ).config( ['$controllerProvider', '$compileProvid
 	var mod = angular.module( 'angularAsync' );
 
 	mod.controller = $controllerProvider.register;
-	mod.directive    = $compileProvider.directive;
-	mod.filter     = $filterProvider.register;
-	mod.factory            = $provide.factory;
-	mod.service            = $provide.service;
-	mod.value            = $provide.value;
-	mod.constant            = $provide.constant;
-	mod.provider            = $provide.provider;
+	mod.directive = $compileProvider.directive;
+	mod.filter = $filterProvider.register;
+	mod.factory = $provide.factory;
+	mod.service = $provide.service;
+	mod.value = $provide.value;
+	mod.constant = $provide.constant;
+	mod.provider = $provide.provider;
 
 }]);
 
@@ -21,9 +21,9 @@ angular.module( 'angularAsync' ).factory( 'async', ['$rootScope', '$q', function
 	var fetch = function( file, success, failure ){
 		var deferred = $q.defer();
 
-		if ( !fetched[file] ){
+		if ( !fetched[ file ] ){
 
-			kernel.require(file, function(){
+			kernel.require( file, function(){
 
 				$rootScope.$apply(function(){
 					fetched[file] = true;
@@ -31,6 +31,7 @@ angular.module( 'angularAsync' ).factory( 'async', ['$rootScope', '$q', function
 					if (success) success();
 				});
 			}, function(){
+
 				$rootScope.$apply(function(){
 					fetched[file] = false;
 					deferred.reject();
@@ -43,11 +44,11 @@ angular.module( 'angularAsync' ).factory( 'async', ['$rootScope', '$q', function
 		}
 
 		return deferred.promise;
-	}
+	};
 
 	return {
 		fetch: fetch
-	}
+	};
 }]);
 
 angularAsync.require = kernel.require;

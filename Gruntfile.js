@@ -8,8 +8,10 @@ module.exports = function(grunt) {
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 			},
 			build: {
-				src: ['app/lib/helios-kernel/kernel.js', 'app/js/angular-async.js'],
-				dest: 'dist/<%= pkg.name %>.min.js'
+				files: {
+					'dist/kernel.min.js': [ 'app/lib/helios-kernel/kernel.js' ],
+					'dist/angular-async.min.js': [ 'app/js/angular-async.js' ]
+				}
 			}
 		},
 		concat: {
@@ -24,7 +26,9 @@ module.exports = function(grunt) {
 		},
 		copy: {
 			build: {
-				src: ['README.md'],
+				expand: true,
+				flatten: true,
+				src: ['README.md', 'app/lib/helios-kernel/kernel.js', 'app/js/angular-async.js' ],
 				dest: 'dist/'
 			}
 		},
@@ -40,6 +44,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	// Default task(s).
-	grunt.registerTask('default', ['clean', 'copy', 'concat', 'uglify']);
+	grunt.registerTask('default', ['clean', 'copy', 'uglify']);
 
 };
